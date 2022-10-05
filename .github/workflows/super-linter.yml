@@ -7,7 +7,8 @@
 name: Lint Code Base
 
 env:
-   FILTER_REGEX_INCLUDE: .*Practical-1/.*
+   VALIDATE_YAML: false
+   VALIDATE_CPP: true
 
 on:
   push:
