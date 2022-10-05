@@ -6,6 +6,9 @@
 # https://github.com/github/super-linter
 name: Lint Code Base
 
+env:
+   FILTER_REGEX_INCLUDE: .*/Practical-1.*
+
 on:
   push:
     branches: [ "main" ]
