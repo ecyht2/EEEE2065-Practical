@@ -65,8 +65,8 @@ jobs:
     #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
 
       run: |
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} .
+        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} .
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
