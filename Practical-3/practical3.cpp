@@ -3,6 +3,7 @@
 #include <iostream>
 #include <functional>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
@@ -105,22 +106,24 @@ void practical3_2(){
     // Answer: The XOR operator does the XOR logic on every bit of the number (bitwise operator).
 }
 
-/** Prints an 8-bit number in binary.
+/** Prints an positive integer in binary.
  *
- * @param x The 8-bin number to convert.
+ * @param x The positive integer to convert.
  * */
-void printBinary(unsigned char x) {
-    char bin[9];
-    bin[8] = '\0';
+void printBinary(long unsigned int x) {
+    vector<bool> bin;
 
     int y = x;
 
-    for (int i = 7; i >= 0; i--) {
-        bin[i] = ((x & 1) == 1 ? '1' : '0');
+    while (x > 0) {
+        bin.push_back(((x & 1) == 1 ? true : false));
         x = x >> 1;
     }
-
-    cout << y << ": " << bin << endl;
+    cout << y << ": ";
+    for (int i = bin.size() - 1; i >= 0; i--) {
+        cout << bin[i];
+    }
+    cout << endl;
 }
 
 /** Code Related to Practical 3.3. */
@@ -130,6 +133,7 @@ void practical3_3() {
     printBinary(5);
     printBinary(69);
     printBinary(255);
+    printBinary(69420);
 }
 
 /** Code Related to Practical 3.4.1. */
