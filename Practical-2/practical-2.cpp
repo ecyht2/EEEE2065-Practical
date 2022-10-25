@@ -1,37 +1,78 @@
 #include <iostream>
 #include <cstring>
 #include <iomanip>
+#include <functional>
+#include <string>
 #include "dataTypes.h"
 #include "testMath.h"
 
 using namespace std;
 
+/** A wrapper class for a function that has a string name */
+class NamedFunction {
+    public:
+        NamedFunction(function<void (void)> f, string name) {
+            func = f;
+            this->name = name;
+        }
+        void operator ()(void) {
+            func();
+        }
+        void call() {
+            func();
+        }
+        string getName() {
+            return name;
+        }
+    private:
+        function<void (void)> func = nullptr;
+        string name = "";
+};
+
 int main(int argc, char *argv[]) {
-    for (int i = 1; i < argc; i++) {
-        char *current_string = argv[i];
-        if (strcmp(current_string, "testInt") == 0) {
-            testInt(69, 420);
-        } else if (strcmp(current_string, "testSignedUnsigned") == 0) {
-            testSignedUnsigned();
-        } else if (strcmp(current_string, "testFloatDouble") == 0) {
-            testFloatDouble();
-        } else if (strcmp(current_string, "testChar") == 0) {
-            testChar();
-        } else if (strcmp(current_string, "testString") == 0) {
-            testString();
-        } else if (strcmp(current_string, "convertF2C") == 0) {
+    // Setting Up Named Function List
+    NamedFunction functions[] = {
+        NamedFunction(testString, "testString"),
+        NamedFunction(testSignedUnsigned, "testSignedUnsigned"),
+        NamedFunction(testFloatDouble, "testChar"),
+        NamedFunction(C2F, "C2F"),
+        NamedFunction(F2C, "F2C"),
+        NamedFunction([]() {
             double F = 22.0;
             double C = convertF2C(F);
             cout << "Temp in F=" << F << endl << "Temp in C=" << C << endl;
-        } else if (strcmp(current_string, "convertC2F") == 0) {
+        }, "convertF2C"),
+        NamedFunction([]() {
+            testInt(69, 420);
+        }, "testInt"),
+        NamedFunction([]() {
             double C = 22.0;
             double F = convertC2F(C);
             cout << "Temp in C=" << C << endl << "Temp in F=" << F << endl;
-        } else if (strcmp(current_string, "F2C") == 0) {
-            F2C();
-        } else if (strcmp(current_string, "C2F") == 0) {
-            C2F();
-        } else {
+        }, "convertC2F")
+    };
+
+    // Looping Over all argc
+    for (int i = 1; i < argc; i++) {
+        char *current_string = argv[i];
+        bool flag = true;
+
+        // Looping all avaiable functions
+        for (int j = 0; j < 8; j++) {
+            NamedFunction current_function = functions[j];
+            // Checking if the name matches
+            if (current_function.getName() == current_string) {
+                // Calling function
+                cout << "Calling " << current_string << endl;
+                flag = false;
+                current_function();
+                // Adding Padding
+                cout << endl;
+            }
+        }
+
+        // If not function found
+        if (flag) {
             cout << "No Function " << current_string << " found skipping..." << endl;
         }
     }
