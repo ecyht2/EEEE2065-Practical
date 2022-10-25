@@ -20,12 +20,15 @@ void testSignedUnsigned() {
     // char
     cout << "Char:" << endl;
     unsigned char i;
-    i = 255;
-    printf("signed: %d, unsinged: %u\n", i, i);
-    i = 127;
-    printf("signed: %d, unsinged: %u\n", i, i);
-    i = 128;
-    printf("signed: %d, unsinged: %u\n", i, i);
+    signed char k;
+    for (i = 1, k = 1; i != 0 && k != 0; i++, k++) {
+        cout << "unsigned: %d=" << (int) i << ", %u=" << (unsigned) i << endl;
+        cout << "signed: %d=" << (int) k << ", %u=" << (unsigned) k << endl;
+    }
+    i = 0;
+    k = 0;
+    cout << "unsigned: %d=" << (int) i << ", %u=" << (unsigned) i << endl;
+    cout << "signed: %d=" << (int) k << ", %u=" << (unsigned) k << endl;
 
     // short int
     cout << "Short:" << endl;
