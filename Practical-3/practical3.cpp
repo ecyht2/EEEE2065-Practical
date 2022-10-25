@@ -6,7 +6,7 @@
 
 using namespace std;
 
-/** Code Related to Practical 3.1 */
+/** Code Related to Practical 3.1. */
 void practical3_1() {
     char alphabet[] = "abcdefghijklmnopqrstuvwxyz";
     char *str;
@@ -41,25 +41,50 @@ void practical3_1() {
     // Hence, it starts printing from k-z.
 }
 
+/** Prints x op y = .
+ *
+ * This function is mainly used by printAND, printOR and printXOR so less code needs to be
+ * repeated.
+ *
+ * @param x First integer to use.
+ * @param y Second integer to use.
+ * @param op The operator.
+ * */
 void printOperator(int x, int y, string op) {
     cout << x << " " << op << " " << y << " = ";
 }
 
+/** Prints the logical AND output of x and y.
+ *
+ * @param x The first integer to compare.
+ * @param y The second integer to compare.
+ * */
 void printAND(int x, int y) {
     printOperator(x, y, "&&");
     cout << (x && y) << endl;
 }
 
+/** Prints the logical OR output of x and y.
+ *
+ * @param x The first integer to compare.
+ * @param y The second integer to compare.
+ * */
 void printOR(int x, int y) {
     printOperator(x, y, "||");
     cout << (x || y) << endl;
 }
 
+/** Prints the logical XOR output of x and y.
+ *
+ * @param x The first integer to compare.
+ * @param y The second integer to compare.
+ * */
 void printXOR(int x, int y) {
     printOperator(x, y, "^");
     cout << (x ^ y) << endl;
 }
 
+/** Code Related to Practical 3.2 */
 void practical3_2(){
     void (*functions[3])(int, int) = {&printAND, &printOR, &printXOR};
 
@@ -80,6 +105,10 @@ void practical3_2(){
     // Answer: The XOR operator does the XOR logic on every bit of the number (bitwise operator).
 }
 
+/** Prints an 8-bit number in binary.
+ *
+ * @param x The 8-bin number to convert.
+ * */
 void printBinary(unsigned char x) {
     char bin[9];
     bin[8] = '\0';
@@ -94,6 +123,7 @@ void printBinary(unsigned char x) {
     cout << y << ": " << bin << endl;
 }
 
+/** Code Related to Practical 3.3. */
 void practical3_3() {
     printBinary(2);
     printBinary(4);
@@ -102,6 +132,7 @@ void practical3_3() {
     printBinary(255);
 }
 
+/** Code Related to Practical 3.4.1. */
 void practical3_4_1(int argc, char *argv[]) {
     ofstream f("myOutput.txt");
 
@@ -130,6 +161,7 @@ void practical3_4_1(int argc, char *argv[]) {
     // three
 }
 
+/** Code Related to Practical 3.4.2. */
 void practical3_4_2() {
     ifstream f("myOutput.txt");
     char line[1000];
