@@ -120,8 +120,8 @@ void printBinary(long unsigned int x) {
         x = x >> 1;
     }
     cout << y << ": ";
-    for (int i = bin.size() - 1; i >= 0; i--) {
-        cout << bin[i];
+    for (auto i = bin.crbegin(); i != bin.crend(); ++i) {
+        cout << *i;
     }
     cout << endl;
 }
