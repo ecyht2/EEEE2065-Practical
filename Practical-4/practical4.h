@@ -28,4 +28,14 @@ void pascalsTriangle(unsigned int);
 void getNPrimes(unsigned int);
 void getNImprovedPrimes(unsigned int);
 
+template<typename T>
+auto timer(T func) {
+    return [func] (auto &&...args) {
+        clock_t startTime = clock();
+        func(args...);
+        float timeElapsed = (float) (clock() - startTime) / CLOCKS_PER_SEC;
+        cout << "Function took " << timeElapsed << " to run." << endl;
+    };
+}
+
 #endif // PRACTICAL4_H_

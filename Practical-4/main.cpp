@@ -18,18 +18,12 @@ int main(int argc, char *argv[]) {
     getNPrimes(10);
 
     // 100000 primes
-    cout << endl << "Finding first 100000 primes" << endl;
-    clock_t startTime = clock();
-    getNImprovedPrimes(100000);
-    float timeElapsed = (float) (clock() - startTime) / CLOCKS_PER_SEC;
-    cout << "Function took " << timeElapsed << " to run." << endl;
+    auto timedNPrimes = timer(getNImprovedPrimes);
+    timedNPrimes(100000);
 
     // 500000 primes
     cout << endl << "Finding first 500000 primes" << endl;
-    startTime = clock();
-    getNPrimes(500000);
-    timeElapsed = (float) (clock() - startTime) / CLOCKS_PER_SEC;
-    cout << "Function took " << timeElapsed << " to run." << endl;
+    timedNPrimes(500000);
 
     return 0;
 }
