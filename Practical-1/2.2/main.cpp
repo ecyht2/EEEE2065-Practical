@@ -13,7 +13,8 @@ int main(int argc, char *argv[]) {
   printBigTextSimple();
 
   cout << "-------------------------------------------------" << endl;
-  BigText("abcdefghijklmnopqrstuvwxyz").print();
+  BigText("ABCDEFGHIJKLMNOPQRSTUVWXYZ").print();
   BigText(" 0123456789").print();
+  BigText("!@#$%^&*()[]',.?").print();
   return 0;
 }
