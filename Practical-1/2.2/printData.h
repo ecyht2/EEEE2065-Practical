@@ -12,7 +12,7 @@ class BigText {
         BigText(string);
         void print();
         string getText();
-        void setText(string);
+        BigText& setText(string);
     private:
         string text;
         const string big_characters[37][5] = {
@@ -92,7 +92,7 @@ class BigText {
             {"*****", "*   *", "*****", "    *", "*****"}
         };
     protected:
-        int getCharIndex(char);
+        void addCharacter(char, array<string, 5>);
 };
 
 #endif // PRINTDATA_H_

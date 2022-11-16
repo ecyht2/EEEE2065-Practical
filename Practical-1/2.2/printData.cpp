@@ -48,29 +48,11 @@ string BigText::getText() {
   return this->text;
 }
 
-void BigText::setText(string str) {
+BigText& BigText::setText(string str) {
   this->text = str;
+  return *this;
 }
 
-int BigText::getCharIndex(char c) {
-  int ascii_index = (int) c;
-  int index = 0;
-
-  if(ascii_index > 64 && ascii_index < 91) {
-    // Upper Case Letters
-    index = ascii_index - 64;
-  } else if (ascii_index > 96 && ascii_index < 123) {
-    // Lower Case Letters
-    index = ascii_index - 96;
-  } else if (ascii_index > 47 && ascii_index < 58) {
-    // Numbers
-    index = ascii_index - 47;
-    // Shifting by the number of alphabets
-    index += 26;
-  } else {
-    // Other characters
-    index = 0;
-  }
-
-  return index;
+void BigText::addCharacter(char c, array<string, 5> array) {
+  this->big_characters[c] = array;
 }
