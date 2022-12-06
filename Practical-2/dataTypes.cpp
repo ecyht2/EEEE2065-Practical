@@ -83,7 +83,7 @@ void testString() {
     char s[] = "Nottingham";
     cout << "s=" << s << endl;
 
-    for(int i = 0; i < sizeof(s) + 3; i++) {
+    for(int i = 0; i < (int) sizeof(s) + 3; i++) {
         cout << "s[" << i << "]=" << s[i] << " = " << setw(3) << (int) s[i] << endl;
     }
     // Q6: An empty character with ascii number 0 (null) is at the end of the string

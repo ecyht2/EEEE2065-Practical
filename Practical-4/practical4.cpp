@@ -121,7 +121,7 @@ void pascalsTriangle(unsigned int height) {
     current.clear();
 
     // Looping over all the rows
-    for (int i = 3; i < height + 1; i++) {
+    for (int i = 3; i < (int) height + 1; i++) {
         // Adding intial 1
         current.push_back(1);
         // Adding middle elements
@@ -168,7 +168,7 @@ void getNPrimes(unsigned int x) {
         testNumber++;
     }
     // Printing all primes
-    for (int i = 0; i < x; i++) {
+    for (unsigned int i = 0; i < x; i++) {
         cout << i << " " << primes[i] << endl;
     }
 }
@@ -204,7 +204,7 @@ void getNImprovedPrimes(unsigned int x) {
         testNumber++;
     }
     // Printing all primes
-    for (int i = 0; i < x; i++) {
+    for (unsigned int i = 0; i < x; i++) {
         cout << i << " " << primes[i] << endl;
     }
 }

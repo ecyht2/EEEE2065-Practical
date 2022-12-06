@@ -9,6 +9,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ./lib)
 # Exporting compile commands
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${CMAKE_CXX_FLAGS_DEBUG})
+add_compile_options(-Wall)
 
 # Adding Directories
 add_subdirectory(Practical-1)

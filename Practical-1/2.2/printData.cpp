@@ -36,7 +36,7 @@ void BigText::print() {
   // Looping over 5 lines
   for(int i = 0; i < 5; i ++) {
     // Looping over the all characters
-    for(int j = 0; j < text.length(); j++) {
+    for(int j = 0; j < (int) text.length(); j++) {
       char current_char = text[j];
 
       if (big_characters.count(current_char) == 0) {

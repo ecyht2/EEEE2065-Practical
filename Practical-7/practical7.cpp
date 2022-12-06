@@ -82,7 +82,7 @@ void Calendar::printDate(void) {
 }
 
 void Calendar::printMeeting(void) {
-    for (int i = 0; i < this->Nmeeting; i++) {
+    for (int i = 0; i < (int) this->Nmeeting; i++) {
         std::cout << i << " " << meeting[i] << std::endl;
     }
 }
